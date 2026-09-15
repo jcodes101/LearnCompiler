@@ -5,7 +5,7 @@
 ###$ Recursive-Descent Parser - checks the tokens against the LearnCompiler EBNF grammar
 
 #### The ideal flow:
-
+```
 Sample Program File
 ↓
 Lexical Analyzer
@@ -25,13 +25,14 @@ Syntax Analysis
 │ "The Sample Program cannot..." │
 │ + first syntax error │
 └───────────────────────────────────────┘
+```
 
 - Essentially what is happening...
   - The EBNF is being translated into Java. So from the sameples, ex... ->
 
-  `
+  
   <program> -> <keyword> <ident> (<keyword><ident>) { <declares> <assign> }
-
+```
       <declares> -> <keyword> <ident> ;
                   | <keyword> <ident> ; <declares>
 
@@ -43,7 +44,6 @@ Syntax Analysis
       <keyword> -> float
 
       <ident> -> a <ident> | b <ident> ... | z <ident> | ε
-
-  `
+```
 
   ...then everything is being parsed by it's own grammar rule. Once a certain sequence/token is seen a specific function will then be invoked.
